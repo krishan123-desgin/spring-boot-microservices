@@ -88,7 +88,7 @@ public class AdvertService {
         advertRepository.deleteById(id);
     }
 
-    public boolean authorizeCheck(String id, String principal) {
+    public boolean isOwner(String id, String principal) {
         return getUserById(getAdvertById(id).getUserId()).getUsername().equals(principal);
     }
 
