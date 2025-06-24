@@ -56,7 +56,7 @@ public class AdvertController {
     }
 
     @PutMapping("/update")
-    @PreAuthorize("hasRole('ADMIN') or @advertService.authorizeCheck(#request.id, principal)")
+    @PreAuthorize("hasRole('ADMIN') or @advertService.isOwner(#request.id, principal)")
     @Operation(summary = "Update advert")
     public ResponseEntity<AdvertDto> updateAdvertById(@Valid @RequestPart AdvertUpdateRequest request,
                                                       @RequestPart(required = false) MultipartFile file) {
@@ -64,7 +64,7 @@ public class AdvertController {
     }
 
     @DeleteMapping("/deleteAdvertById/{id}")
-    @PreAuthorize("hasRole('ADMIN') or @advertService.authorizeCheck(#id, principal)")
+    @PreAuthorize("hasRole('ADMIN') or @advertService.isOwner(#id, principal)")
     @Operation(summary = "Delete advert")
     public ResponseEntity<Void> deleteAdvertById(@PathVariable String id) {
         advertService.deleteAdvertById(id);

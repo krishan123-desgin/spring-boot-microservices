@@ -52,14 +52,14 @@ public class OfferController {
     }
 
     @PutMapping("/update")
-    @PreAuthorize("hasRole('ADMIN') or @offerService.authorizeCheck(#request.id, principal)")
+    @PreAuthorize("hasRole('ADMIN') or @offerService.isOwner(#request.id, principal)")
     @Operation(summary = "Update offer")
     public ResponseEntity<OfferDto> updateOfferById(@Valid @RequestBody OfferUpdateRequest request) {
         return ResponseEntity.ok(modelMapper.map(offerService.updateOfferById(request), OfferDto.class));
     }
 
     @DeleteMapping("/deleteOfferById/{id}")
-    @PreAuthorize("hasRole('ADMIN') or @offerService.authorizeCheck(#id, principal)")
+    @PreAuthorize("hasRole('ADMIN') or @offerService.isOwner(#id, principal)")
     @Operation(summary = "Delete offer")
     public ResponseEntity<Void> deleteOfferById(@PathVariable String id) {
         offerService.deleteOfferById(id);
