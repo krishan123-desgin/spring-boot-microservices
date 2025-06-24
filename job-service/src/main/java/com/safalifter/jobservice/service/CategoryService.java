@@ -24,7 +24,7 @@ public class CategoryService {
         String imageId = null;
 
         if (file != null)
-            imageId = fileStorageClient.uploadImageToFIleSystem(file).getBody();
+            imageId = fileStorageClient.uploadImageToFileSystem(file).getBody();
 
         return categoryRepository.save(
                 Category.builder()
@@ -47,7 +47,7 @@ public class CategoryService {
         modelMapper.map(request, toUpdate);
 
         if (file != null) {
-            String imageId = fileStorageClient.uploadImageToFIleSystem(file).getBody();
+            String imageId = fileStorageClient.uploadImageToFileSystem(file).getBody();
             if (imageId != null) {
                 fileStorageClient.deleteImageFromFileSystem(toUpdate.getImageId());
                 toUpdate.setImageId(imageId);

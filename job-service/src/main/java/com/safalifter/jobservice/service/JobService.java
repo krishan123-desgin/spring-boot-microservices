@@ -29,7 +29,7 @@ public class JobService {
         String imageId = null;
 
         if (file != null)
-            imageId = fileStorageClient.uploadImageToFIleSystem(file).getBody();
+            imageId = fileStorageClient.uploadImageToFileSystem(file).getBody();
 
         return jobRepository.save(Job.builder()
                 .name(request.getName())
@@ -54,7 +54,7 @@ public class JobService {
         modelMapper.map(request, toUpdate);
 
         if (file != null) {
-            String imageId = fileStorageClient.uploadImageToFIleSystem(file).getBody();
+            String imageId = fileStorageClient.uploadImageToFileSystem(file).getBody();
             if (imageId != null) {
                 fileStorageClient.deleteImageFromFileSystem(toUpdate.getImageId());
                 toUpdate.setImageId(imageId);

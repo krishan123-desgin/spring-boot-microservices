@@ -642,7 +642,7 @@
 
 <b>2 )</b> Go to the project's home directory :  `cd spring-boot-microservices`
 
-<b>3 )</b> Run docker compose <b>`docker compose up`</b></b>
+<b>3 )</b> Run docker compose <b>`docker compose up`</b>
 
 <b>4 )</b> Run <b>Eureka Server</b>
 
@@ -653,7 +653,9 @@
 <b>7 )</b> Run other services (<b>auth-service</b>, <b>user-service</b>, <b>job-service</b>, <b>notification-service</b>  and lastly <b>
 file-storage</b>)
 
+
 <b>8 )</b> For swagger ui localhost:8080/v1/{service-name}/swagger-ui/index.html</b>
+
 <br/>
 <b>9 )</b> Raw OpenAPI docs are available at localhost:8080/v1/{service-name}/v3/api-docs
 
