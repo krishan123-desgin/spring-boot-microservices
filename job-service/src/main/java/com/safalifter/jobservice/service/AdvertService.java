@@ -35,7 +35,7 @@ public class AdvertService {
         String imageId = null;
 
         if (file != null)
-            imageId = fileStorageClient.uploadImageToFIleSystem(file).getBody();
+            imageId = fileStorageClient.uploadImageToFileSystem(file).getBody();
 
         Advert toSave = Advert.builder()
                 .userId(userId)
@@ -74,7 +74,7 @@ public class AdvertService {
         modelMapper.map(request, toUpdate);
 
         if (file != null) {
-            String imageId = fileStorageClient.uploadImageToFIleSystem(file).getBody();
+            String imageId = fileStorageClient.uploadImageToFileSystem(file).getBody();
             if (imageId != null) {
                 fileStorageClient.deleteImageFromFileSystem(toUpdate.getImageId());
                 toUpdate.setImageId(imageId);
@@ -88,7 +88,7 @@ public class AdvertService {
         advertRepository.deleteById(id);
     }
 
-    public boolean authorizeCheck(String id, String principal) {
+    public boolean isOwner(String id, String principal) {
         return getUserById(getAdvertById(id).getUserId()).getUsername().equals(principal);
     }
 
