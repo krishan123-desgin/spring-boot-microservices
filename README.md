@@ -654,6 +654,8 @@
 file-storage</b>)
 
 <b>8 )</b> For swagger ui localhost:8080/v1/{service-name}/swagger-ui/index.html</b>
+<br/>
+<b>9 )</b> Raw OpenAPI docs are available at localhost:8080/v1/{service-name}/v3/api-docs
 
 
 ### Screenshots
