@@ -85,7 +85,7 @@ public class UserService {
         toUpdate = toUpdate == null ? new UserDetails() : toUpdate;
 
         if (file != null) {
-            String profilePicture = fileStorageClient.uploadImageToFIleSystem(file).getBody();
+            String profilePicture = fileStorageClient.uploadImageToFileSystem(file).getBody();
             if (profilePicture != null) {
                 fileStorageClient.deleteImageFromFileSystem(toUpdate.getProfilePicture());
                 toUpdate.setProfilePicture(profilePicture);
