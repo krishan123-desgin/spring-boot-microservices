@@ -18,7 +18,9 @@ import java.util.List;
 @RequestMapping("/v1/notification")
 @RequiredArgsConstructor
 @Tag(name = "Notification Controller", description = "Notification endpoints")
+
 @Slf4j
+
 public class NotificationController {
     private final NotificationService notificationService;
 
